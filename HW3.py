@@ -1,7 +1,7 @@
 ﻿# Your name:Jack Sambursky
 # Your student id: 54750630
 # Your email: jsamburs@umich.edu
-# List who you have worked with on this homework:
+# List who you have worked with on this homework: Abhinav Tadikonda, Jason Kemp
 
 
 # import the random module for use in this program
@@ -13,10 +13,11 @@ import random
     # it sets this object's questions_list (instance variable) to an empty list
     # it sets this object's fortunes_history_list (instance variable) to an empty list
 
-class Fortune_Teller():
+class Fortune_Teller:
+
     def __init__(self, fortunes_list):
-        self.fortunes_list = fortunes_list
         self.questions_list = []
+        self.fortunes_list = fortunes_list
         self.fortunes_history_list = []
 
     
@@ -36,7 +37,7 @@ class Fortune_Teller():
 
     def get_fortune(self):
         value = random.randint(0, (len(self.fortunes_list) -1))
-        self.fortunes_list.append(value)
+        self.fortunes_history_list.append(value)
         return self.fortunes_list[value]
     
         
@@ -49,7 +50,7 @@ class Fortune_Teller():
     def question_check(self, question):
         self.question = question
         if self.question in self.questions_list:
-            return ("I've already answered that question")
+             return ("I've already answered that question")
         else:
              self.questions_list.append(self.question)
              return self.get_fortune()
@@ -63,7 +64,7 @@ class Fortune_Teller():
             print("None yet")
         else:  
             for item in self.fortunes_history_list:
-                print("[" + str(self.questions_list.index(item)) + "]" + self.questions_list[self.fortunes_history_list.indexx(item)]+ " - " + self.fortunes_list[self.fortunes_history_list.index(item)])
+                print("[" + str(self.fortunes_history_list.index(item)) + "]" + self.questions_list[self.fortunes_history_list.index(item)] + " - " + self.fortunes_list[self.fortunes_history_list.index(item)])
 
 
 
@@ -84,20 +85,20 @@ class Fortune_Teller():
 def main():
 
     # You are welcome to replace the answer_list with your desired answers
-        fortunes_list = ["Yes", "No", "Ask again", "Maybe", "Not clear"]
-        bot = Fortune_Teller(fortunes_list)
+    fortunes_list = ["Yes", "No", "Ask again", "Maybe", "Not clear"]
+    bot = Fortune_Teller(fortunes_list)
 
     # get the first question or quit
-        question = input("Enter a question or type quit: ")
+    question = input("Enter a question or type quit: ")
     # loop while question is not "quit"
-        while question != "quit":
+    while question != "quit":
             
         # get an answer from question_check
-            answer = bot.question_check(question)
+        answer = bot.question_check(question)
         # print question - answer
-            print(question + " - " + answer)
+        print(str(question) + " - " + str(answer))
         # get the next question or quit 
-            question = input("Enter a question or type quit:\n")
+        question = input("Enter a question or type quit:\n")
 
 def test():
 
@@ -143,5 +144,5 @@ def test():
 
 # only run the main function if this file is being run (not imported)
 if __name__ == "__main__":
-    #main()
+    main()
     test() 
